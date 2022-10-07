@@ -21,7 +21,7 @@ namespace RealisticGunshotSample
 			{
 				case GunFiringMode.Single:
 					{
-						int rndIndex = UnityEngine.Random.Range(0, SingleShotSounds.Length);
+						int rndIndex = SingleShotSounds.Length > 1 ? UnityEngine.Random.Range(0, SingleShotSounds.Length) : 0;
 
 						_audioSource.clip = SingleShotSounds[rndIndex];
 						_audioSource.Play();

@@ -8,11 +8,16 @@ namespace RealisticGunshotSample
 
 		private GunFiringMode _gunFiringMode;
 
-		internal void PlayGunshotSounds()
+		private void Start()
+		{
+			gunSounds = GetComponentsInChildren<GunSound>();
+		}
+
+		internal void PlayGunshotSounds(GunFiringMode gunFiringMode)
 		{
 			for (int i = 0; i < gunSounds.Length; i++)
 			{
-				gunSounds[i].PlayGunshotSound(_gunFiringMode);
+				gunSounds[i].PlayGunshotSound(gunFiringMode);
 			}
 		}
 
@@ -22,11 +27,6 @@ namespace RealisticGunshotSample
 			{
 				gunSounds[i].StopGunshotSound(_gunFiringMode);
 			}
-		}
-
-		internal void SetGunFiringMode(GunFiringMode gunFiringMode)
-		{
-			_gunFiringMode = gunFiringMode;
 		}
 	}
 }
